@@ -2,14 +2,21 @@
 
 using namespace std;
 
+void add()
+{
+	int a,b;
+	cout<<"\nEnter your first value  :";
+	cin>>a;
+	cout<<"\nEnter your second value :"
+	cin>>b;
+	cout<<"\nAddition of two numbers is : "<<a+b<<"\n";
+
+}
+
 int main()
 {
 
-	cout<<"\nAll set for git\n";
-	int a;
-	cout<<"\nEnter the value of a :";
-	cin>>a;
-	cout<<"\nThe value of a is : "<<a<<"\n";
+	add();
 
 }
 
