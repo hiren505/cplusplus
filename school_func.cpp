@@ -1,26 +1,8 @@
-#include<iostream>
+#include <iostream>
+#include "school.h"
 
 using namespace std;
 
-
-class school
-{
-
-	private:
-		int student_id;
-		char first_name[15];
-		char last_name[15];
-	
-	public:
-		// Default Constructor
-		school();
-
-		// constructor when student id is provided
-		school(int student_id);					
-			
-		void display();
-
-}; 
 
 school::school()
 {
@@ -44,9 +26,4 @@ void school::display()
 	cout<<"\nStudent Last Name  : "<<last_name<<endl;
 }
 
-int main()
-{
-	int id = 123;
-	school s1(123);
-	s1.display();
-}
+
