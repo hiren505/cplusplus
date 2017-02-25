@@ -10,15 +10,14 @@ class school
 		int student_id;
 		char first_name[15];
 		char last_name[15];
-	
+		long guardian_cell_no;
 	public:
-		// Default Constructor
-		school();
-
-		// constructor when student id is provided
-		school(int student_id);					
-			
-		void display();
+		void input_student_data();
+		void display_student_data(school s1);
+					
 
 }; 
 
+
+void append_student_data();	
+void display_all_student_data();

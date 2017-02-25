@@ -4,7 +4,6 @@
 
 int main()
 {
-	int id = 123;
-	school s1(123);
-	s1.display();
+	//append_student_data();
+	display_all_student_data();
 }
