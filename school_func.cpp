@@ -29,6 +29,12 @@ void school::display_student_data(school s1)
 	cout<<endl<<"**"<<setw(15)<<s1.student_id<<setw(22)<<s1.first_name<<setw(18)<<s1.last_name<<setw(25)<<s1.guardian_cell_no<<"                   **";
 }
 
+int school::return_student_id(school s1)
+{
+	int id_to_return = s1.student_id;
+	return id_to_return;
+}
+
 void append_student_data()
 {
 
@@ -57,7 +63,7 @@ void display_all_student_data()
 		while(1)
 		{
 
-			file1.read( (char *) (&s1), sizeof(school));
+			file1.read( (char *) (&s1), sizeof(s1));
 			if(file1.eof())
 			{
 				break;
@@ -104,9 +110,73 @@ int display_options()
 }	
 
 
+void delete_student()
+{
+
+	int id_to_delete;
+	int present_status = 0;
+
+	cout<<"\n*******************************************************************************************************";
+	cout<<"\n**                                                                                                   **";
+	cout<<"\n**                                Enter the ID You want to delete : ";
+	cin>>id_to_delete;
+	cout<<"*******************************************************************************************************\n\n";
+
+	school s1;
+
+	ifstream filetoread;
+	ofstream filetowrite;
+
+	filetoread.open("Record.txt");
+	filetowrite.open("temp.txt");
+
+	while(1)
+	{
+		filetoread.read((char *)(&s1), sizeof(s1));
+		if(filetoread.eof())
+		{
+			break;
+		}
+		if(s1.return_student_id(s1) != id_to_delete)
+		{
+			filetowrite.write((char *)(&s1), sizeof(s1));
+		}
+		else
+		{
+			present_status = 1;
+		}
+	}
+
+	filetoread.close();
+	filetowrite.close();
+
+
+	remove("Record.txt");
+	rename("temp.txt","Record.txt");
+
+	if(present_status == 1)
+	{
+		cout<<"\n\n";
+		cout<<"\n*******************************************************************************************************";
+		cout<<"\n**                                                                                                   **";
+		cout<<"\n**                    Student ID No : "<<id_to_delete<<" deleted Successfully                                         **";
+		cout<<"\n**                                                                                                   **";
+		cout<<"\n*******************************************************************************************************";
+	}
+	else
+	{
+		cout<<"\n\n";
+		cout<<"\n*******************************************************************************************************";
+		cout<<"\n**                                                                                                   **";
+		cout<<"\n**              Sorry the Student Id you mentioned was not found in the file !!!!!                   **";
+		cout<<"\n**                                                                                                   **";
+		cout<<"\n*******************************************************************************************************";
+	}
+}
+
 void quit_software()
 {
-	cout<<"\n***\n****************************************************************************************************";
-	cout<<"\n**                                Have A Good Day !                                                  **";
 	cout<<"\n*******************************************************************************************************";
+	cout<<"\n**                                Have A Good Day !                                                  **";
+	cout<<"\n*******************************************************************************************************\n\n\n\n";
 }
