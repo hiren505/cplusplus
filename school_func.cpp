@@ -7,7 +7,10 @@ using namespace std;
 
 
 
-
+/* 
+ 	This is a member function of school class. This function basically 
+	takes the parameters from the keyboard and stores in the school object
+*/ 
 void school::input_student_data()
 {
 	cout<<"\nEnter Student ID: ";
@@ -21,20 +24,30 @@ void school::input_student_data()
 	cin>>guardian_cell_no;
 }
 
-
-
+/*
+	This is a member function of class school. This function displays
+	the privet members of the class school
+*/
 void school::display_student_data(school s1)
 {
 	
 	cout<<endl<<"**"<<setw(15)<<s1.student_id<<setw(22)<<s1.first_name<<setw(18)<<s1.last_name<<setw(25)<<s1.guardian_cell_no<<"                   **";
 }
 
+/*
+	This is a member function of school. This function returns the student id
+	of the class object that it receives.
+*/
 int school::return_student_id(school s1)
 {
 	int id_to_return = s1.student_id;
 	return id_to_return;
 }
 
+/*
+	This function calls the input_data member function of school and
+	append the data int the file.
+*/
 void append_student_data()
 {
 
@@ -44,10 +57,14 @@ void append_student_data()
 	school student;
 	student.input_student_data();
 	file1.write((char *)(&student), sizeof(student));
-	cout<<"\nD1ata Apended Successfully\n";
+	cout<<"\nData Apended Successfully\n";
 	file1.close();
 }
 
+/*
+	This function displays the list of Students stored
+	in the File in a proper format.
+*/
 void display_all_student_data()
 {
 	cout<<endl<<endl;
@@ -82,6 +99,11 @@ void display_all_student_data()
 	cout<<"\n*******************************************************************************************************";
 }
 
+/*
+	This function displays the wecome screen of the software
+	This functon contains the options that can be performed when
+	selected. 
+*/
 int display_options()
 {
 	int choice;
@@ -109,7 +131,10 @@ int display_options()
 	return choice;
 }	
 
-
+/*
+	This function asks the user to enter a ID that he want
+	to delete. And then delets the particular ID.
+*/
 void delete_student()
 {
 
@@ -174,6 +199,9 @@ void delete_student()
 	}
 }
 
+/*
+	This function displays the Good day message
+*/
 void quit_software()
 {
 	cout<<"\n*******************************************************************************************************";
