@@ -21,3 +21,5 @@ class school
 
 void append_student_data();	
 void display_all_student_data();
+int display_options();
+void quit_software();
